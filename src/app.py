@@ -5,8 +5,8 @@ import debugpy
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
-debugpy.listen(("0.0.0.0", 5678))
-debugpy.wait_for_client()
+#debugpy.listen(("0.0.0.0", 5678))
+#debugpy.wait_for_client()
 
 @app.route('/')
 def hello():
