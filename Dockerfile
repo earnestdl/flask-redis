@@ -1,13 +1,12 @@
 # syntax=docker/dockerfile:1.4
 FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
 
-WORKDIR /code
+WORKDIR /usr/app-root
+COPY . .
 
-COPY requirements.txt /code
+WORKDIR /usr/app-root/src
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirements.txt
-
-COPY . /code
 
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
