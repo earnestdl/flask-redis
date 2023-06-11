@@ -10,7 +10,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 COPY . /code
 
 ENTRYPOINT ["python3"]
-CMD ["src/app.py"]
+CMD ["app.py"]
 
 FROM builder as dev-envs
 
