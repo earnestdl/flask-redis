@@ -4,6 +4,10 @@ from redis import Redis
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
+import debugpy
+debugpy.listen(("0.0.0.0", 5678))
+debugpy.wait_for_client()
+
 @app.route('/')
 def hello():
     redis.incr('hits')
